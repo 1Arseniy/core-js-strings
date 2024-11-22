@@ -154,10 +154,9 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(str, value) {
-  return str.replace(value, '');
+function removeFirstOccurrences(/* str, value */) {
+  throw new Error('Not implemented');
 }
-console.log(removeFirstOccurrences('jbvctc', 'iguyfd'));
 
 /**
  * Remove the last occurrence of a substring from a string.
@@ -190,7 +189,6 @@ function removeLastOccurrences(/* str, value */) {
 function sumOfCodes(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Checks if a string starts with a specific substring.
  *
@@ -248,8 +246,9 @@ function formatTime(/* minutes, seconds */) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  const array = str.split('').reverse().join('');
+  return array;
 }
 
 /**
@@ -263,8 +262,9 @@ function reverseString(/* str */) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  const sorts = str.split('').sort().join('');
+  return sorts;
 }
 
 /**
