@@ -201,11 +201,8 @@ function sumOfCodes(str) {
   } else {
     return 0;
   }
-  let codeSum = 0;
-  newStr.forEach((el) => {
-    codeSum += el.charCodeAt();
-  });
-  return codeSum;
+  const sum = newStr.reduce((acc, cur) => acc + cur.charCodeAt(), 0);
+  return sum;
 }
 /**
  * Checks if a string starts with a specific substring.
@@ -218,8 +215,8 @@ function sumOfCodes(str) {
  *   startsWith('Hello World', 'World') => false
  *   startsWith('Hello World', 'Hello') => true
  */
-function startsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function startsWith(str, substr) {
+  return str.startsWith(substr);
 }
 
 /**
@@ -408,10 +405,9 @@ function getStringFromTemplate(firstName, lastName) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  return value.slice(7, -1);
 }
-
 /**
  * Remove the first and last angle brackets from tag string
  *
@@ -442,8 +438,8 @@ function unbracketTag(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 /**
  * Encode specified string with ROT13 cipher
