@@ -154,10 +154,14 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  const nStr = str.indexOf(value);
+  if (nStr === -1) {
+    return str;
+  }
+  const nStr2 = str.slice(0, nStr) + str.slice(nStr + value.length);
+  return nStr2;
 }
-
 /**
  * Remove the last occurrence of a substring from a string.
  *
@@ -170,10 +174,14 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  const lastStr = str.lastIndexOf(value);
+  if (lastStr === -1) {
+    return str;
+  }
+  const newLastStr = str.slice(0, lastStr) + str.slice(lastStr + value.length);
+  return newLastStr;
 }
-
 /**
  * Calculate the sum of character codes of the given string.
  *
@@ -186,8 +194,18 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  let newStr;
+  if (str) {
+    newStr = str.split('');
+  } else {
+    return 0;
+  }
+  let codeSum = 0;
+  newStr.forEach((el) => {
+    codeSum += el.charCodeAt();
+  });
+  return codeSum;
 }
 /**
  * Checks if a string starts with a specific substring.
@@ -215,10 +233,9 @@ function startsWith(/* str, substr */) {
  *   endsWith('Hello World', 'World') => true
  *   endsWith('Hello World', 'Hello') => false
  */
-function endsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function endsWith(str, substr) {
+  return str.endsWith(substr);
 }
-
 /**
  * Returns a time string in the "mm:ss" format.
  *
@@ -343,8 +360,13 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const nStr = str.split(' ');
+  const arrStr = [];
+  nStr.forEach((el) => {
+    arrStr.push(el.split('').reverse().join(''));
+  });
+  return arrStr.join(' ');
 }
 /**
  * Inverts the case of each character in the given string.
